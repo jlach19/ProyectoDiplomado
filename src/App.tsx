@@ -1,5 +1,6 @@
-//Reemplázalo con tu contrato 0xb98e97316E57873feE723EaF2C4f6B953049b670
-// "https://emerald-working-koi-572.mypinata.cloud/ipfs/bafkreiay7uhxktrsu7p3tajkfmfbc5saywtjaygo6hm6owmrhmvpekaifi";
+//contrato 0xb98e97316E57873feE723EaF2C4f6B953049b670
+// NFT https://emerald-working-koi-572.mypinata.cloud/ipfs/bafkreicj3uy5sf2ov76jgtzdxakpx2ypzmy7vdakhqlzjalj5jq4q736zy 
+
 
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
@@ -7,7 +8,7 @@ import "./App.css";
 import abi from "./abi.json";
 
 const CONTRACT_ADDRESS = "0xb98e97316E57873feE723EaF2C4f6B953049b670"; // Contrato en Arbitrum Sepolia
-const TOKEN_URI = "https://emerald-working-koi-572.mypinata.cloud/ipfs/bafkreiay7uhxktrsu7p3tajkfmfbc5saywtjaygo6hm6owmrhmvpekaifi";
+const TOKEN_URI = "https://emerald-working-koi-572.mypinata.cloud/ipfs/bafkreicj3uy5sf2ov76jgtzdxakpx2ypzmy7vdakhqlzjalj5jq4q736zy";
 // URI del NFT
 
 declare global {
