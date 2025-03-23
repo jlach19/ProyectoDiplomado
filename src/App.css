@@ -1,51 +1,45 @@
-#root {
+/* Estilos generales */
+* {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100vh;
-  font-family: Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-width: 320px;
-  min-height: 100vh;
-  width: 100%;
+  font-family: Helvetica, Arial, sans-serif;
   background-image: url("../public/home.png");
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   overflow-x: hidden;
+  min-width: 320px;
+  min-height: 100vh;
 }
 
-.app {
-  margin: 0;
-  padding: 0;
+#root {
   width: 100%;
   height: 100vh;
 }
 
+.app {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Navbar */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   width: 100%;
-  max-width: 100vw;
   height: 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0 1.5rem;
   background: rgba(45, 55, 75, 0.8);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .logo {
@@ -128,8 +122,34 @@ button:focus {
   outline: none;
 }
 
-/* Estilos responsivos */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 100vw;
+  height: 6rem;
+  padding: 0 1.5rem;
+  background: rgba(45, 55, 75, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  color: white;
+  font-size: small;
+}
+
+/* Responsividad */
+@media (max-width: 1024px) {
+  .text-hero h1 {
+    font-size: 4rem;
+  }
+}
+
 @media (max-width: 768px) {
+  body {
+    background-position: center;
+  }
+
   .navbar {
     flex-direction: column;
     height: auto;
@@ -138,7 +158,6 @@ button:focus {
   }
 
   .logo {
-    margin: 0;
     flex-direction: column;
     text-align: center;
   }
@@ -154,21 +173,44 @@ button:focus {
   .conection {
     margin: 0;
   }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .buttons {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .text-hero h1 {
+    font-size: 2.5rem;
+  }
 }
 
-.footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 100vw;
-  height: 6rem;
-  padding: 0 1.5rem;
-  background: rgba(45, 55, 75, 0.8);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  overflow: hidden;
-  color: white;
-  font-size: small;
+@media (max-width: 480px) {
+  body {
+    background-position: center;
+  }
+
+  .name-logo {
+    font-size: 1.8rem;
+  }
+  .text-hero h1 {
+    font-size: 2.5rem;
+  }
+  .buttons {
+    gap: 0.5rem;
+  }
+  button {
+    font-size: 0.8em;
+    padding: 0.4em 0.8em;
+    width: 90%;
+  }
 }
