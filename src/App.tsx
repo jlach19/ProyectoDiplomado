@@ -1,6 +1,5 @@
 //contrato 0xb98e97316E57873feE723EaF2C4f6B953049b670
-// NFT https://emerald-working-koi-572.mypinata.cloud/ipfs/bafkreicj3uy5sf2ov76jgtzdxakpx2ypzmy7vdakhqlzjalj5jq4q736zy 
-
+// NFT https://emerald-working-koi-572.mypinata.cloud/ipfs/bafkreicj3uy5sf2ov76jgtzdxakpx2ypzmy7vdakhqlzjalj5jq4q736zy
 
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
@@ -8,7 +7,8 @@ import "./App.css";
 import abi from "./abi.json";
 
 const CONTRACT_ADDRESS = "0xb98e97316E57873feE723EaF2C4f6B953049b670"; // Contrato en Arbitrum Sepolia
-const TOKEN_URI = "https://emerald-working-koi-572.mypinata.cloud/ipfs/bafkreicj3uy5sf2ov76jgtzdxakpx2ypzmy7vdakhqlzjalj5jq4q736zy";
+const TOKEN_URI =
+  "https://emerald-working-koi-572.mypinata.cloud/ipfs/bafkreicj3uy5sf2ov76jgtzdxakpx2ypzmy7vdakhqlzjalj5jq4q736zy";
 // URI del NFT
 
 declare global {
@@ -37,7 +37,11 @@ function App() {
       const signer = await web3Provider.getSigner(); // Obtener el signer
       const accountAddress = await signer.getAddress(); // Obtener la dirección como string
       const network = await web3Provider.getNetwork();
-      const contractInstance = new ethers.Contract(CONTRACT_ADDRESS, abi, signer); // Usar signer
+      const contractInstance = new ethers.Contract(
+        CONTRACT_ADDRESS,
+        abi,
+        signer
+      ); // Usar signer
 
       setAccount(accountAddress);
       setProvider(web3Provider);
@@ -98,7 +102,11 @@ function App() {
 
         if (accounts.length > 0) {
           const signer = await web3Provider.getSigner();
-          const contractInstance = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
+          const contractInstance = new ethers.Contract(
+            CONTRACT_ADDRESS,
+            abi,
+            signer
+          );
 
           setAccount(await signer.getAddress());
           setProvider(web3Provider);
@@ -111,21 +119,46 @@ function App() {
     checkConnection();
   }, []);
 
-
-
   return (
-    <div className="App">
-      <h1>Mentorías Web3</h1>
-      <button onClick={connectWallet}>
-        {account ? `Conectado: ${account.substring(0, 6)}...` : "Conectar MetaMask"}
-      </button>
-      {network && <p>Red: {network}</p>}
-      <button onClick={reservarMentoria} disabled={!account}>
-        Reservar Mentoría (0.01 ETH)
-      </button>
-      <button onClick={generarCertificado} disabled={!account}>
-        Generar Certificado NFT
-      </button>
+    <div className="app">
+      <div className="navbar">
+        <div className="logo">
+          <span className="img-logo">
+            <img src="/mentrum.svg" alt="Logo" />
+          </span>
+          <span className="name-logo">Mentrum</span>
+        </div>
+        <div className="conection">
+          <button className="connetWallet" onClick={connectWallet}>
+            {account
+              ? `Conectado: ${account.substring(0, 6)}...`
+              : "Conectar MetaMask"}
+          </button>
+        </div>
+      </div>
+
+      <div className="content">
+        <div className="buttons">
+          {account && (
+            <>
+              {/*{network && <p>Red: {network}</p>}*/}
+              <button onClick={reservarMentoria}>
+                Reservar Mentoría (0.01 ETH)
+              </button>
+              <button onClick={generarCertificado}>
+                Generar Certificado NFT
+              </button>
+            </>
+          )}
+        </div>
+        <div className="text-hero">
+          <h1>¡Elige Tú Mentor!</h1>
+        </div>
+      </div>
+
+      <div className="footer">
+        <p>&copy; 2025 Mentrum. Todos los derechos reservados.</p>
+      </div>
     </div>
   );
 }
